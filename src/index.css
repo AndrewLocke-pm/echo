@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark-first theme - deep navy */
+    --background: 222 47% 7%;
+    --foreground: 210 20% 92%;
+    --card: 222 40% 10%;
+    --card-foreground: 210 20% 92%;
+    --popover: 222 44% 9%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 173 58% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 16% 57%;
+    --accent: 173 45% 20%;
+    --accent-foreground: 210 20% 95%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 25% 18%;
+    --input: 222 25% 18%;
+    --ring: 173 58% 39%;
+    --radius: 0.5rem;
+
+    /* Extended palette */
+    --teal: 173 58% 39%;
+    --teal-light: 173 50% 50%;
+    --teal-dark: 173 65% 28%;
+    --amber: 38 92% 50%;
+    --amber-light: 43 96% 64%;
+    --gold: 42 87% 55%;
+    --navy-deep: 222 47% 7%;
+    --navy-card: 222 40% 10%;
+    --navy-light: 222 35% 14%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --error: 0 72% 51%;
+    --info: 199 89% 48%;
+
+    --chart-1: 173 58% 39%;
+    --chart-2: 38 92% 50%;
+    --chart-3: 280 65% 60%;
+    --chart-4: 199 89% 48%;
+    --chart-5: 142 71% 45%;
+  }
+
+  .light {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 173 58% 34%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 92%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 173 40% 88%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 173 58% 34%;
+
+    --teal: 173 58% 34%;
+    --teal-light: 173 50% 45%;
+    --teal-dark: 173 65% 24%;
+    --amber: 38 92% 45%;
+    --amber-light: 43 96% 58%;
+    --gold: 42 87% 50%;
+    --navy-deep: 210 20% 98%;
+    --navy-card: 0 0% 100%;
+    --navy-light: 210 20% 94%;
+    --success: 142 71% 40%;
+    --warning: 38 92% 45%;
+    --error: 0 72% 51%;
+    --info: 199 89% 43%;
+
+    --chart-1: 173 58% 34%;
+    --chart-2: 38 92% 45%;
+    --chart-3: 280 55% 55%;
+    --chart-4: 199 89% 43%;
+    --chart-5: 142 71% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  .text-teal { color: hsl(var(--teal)); }
+  .text-amber { color: hsl(var(--amber)); }
+  .text-gold { color: hsl(var(--gold)); }
+  .bg-teal { background-color: hsl(var(--teal)); }
+  .bg-amber { background-color: hsl(var(--amber)); }
+  .bg-navy-deep { background-color: hsl(var(--navy-deep)); }
+  .bg-navy-card { background-color: hsl(var(--navy-card)); }
+  .border-teal { border-color: hsl(var(--teal)); }
+  .bg-gradient-navy {
+    background: linear-gradient(135deg, hsl(222 47% 7%) 0%, hsl(222 40% 10%) 100%);
+  }
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  }
+  .shadow-glow-teal {
+    box-shadow: 0 0 20px -4px hsl(var(--teal) / 0.4);
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tiptap editor styles */
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.ProseMirror ul[data-type="taskList"] li > div {
+  flex: 1;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 1rem 0;
+}
+
+.ProseMirror .is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+  height: 0;
+}
